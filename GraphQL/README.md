@@ -1,4 +1,6 @@
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--M5dHch5L--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/800/1%2AR6WHuWI0M9I4t-og2yNq-w.png)
+<p align="center">
+  <img width="75%" src="https://user-images.githubusercontent.com/42988225/166141884-922cdb67-dbbb-4bc4-a9cf-db33d52ad0e1.png"/>
+</p>
 
 장점
 구체적인 단일 요청으로 필요한 데이터만 받아올 수 있음
