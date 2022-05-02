@@ -12,6 +12,7 @@ const typeDefs = `
     Summary: String!
     language: String!
     medium_cover_image: String!
+    description_intro: String!
   }
 `;
 
