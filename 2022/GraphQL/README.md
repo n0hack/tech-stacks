@@ -1,112 +1,89 @@
 # GraphQL
 
-GraphQL은 페이스북에서 개발한 쿼리 언어이며, 기존 REST API의 단점을 보완하기 위해 만들어졌다. REST API에서는 End-Point가 여러 곳에 존재하기에 하나의 화면을 구성하기 위해 많은 요청(Under-fetching)이 필요한데, GraphQL은 단 하나의 End-Point만 존재하기에 단 한 번의 요청으로 원하는 정보를 모두 가져올 수 있다.
+GraphQL은 페이스북에서 개발한 API를 위한 쿼리 언어이며, REST API의 단점을 보완한다. 대표적으로 REST API에서 발생하는 문제인 두 가지 문제를 해결 가능하다.
 
-GraphQL은 앞서 언급한 Under-fetching과 더불어 불필요한 데이터까지 요청하게 되는 Over-fetching 문제까지 해결할 수 있다. 다음의 REST API 예시를 보면서 어떤 문제가 있고, 이 문제를 어떻게 해결하는지 살펴보자.
-
-```javascript
-// GET /users/1
-// (ID가 1인 유저 조회)
-
-{
-  id: 1;
-  name: NoHack;
-  age: 29;
-}
-```
-
-REST API를 통해 특정 사용자를 요청하게 되면 스키마(Schema)에 따라 정의되어 있는 모든 데이터를 반환 받는다. 사용자의 이름(name)만 필요한 경우라 하더라도, 우리는 불필요한 나이(age)도 받게 되는 것이다. 이렇게 불필요한 정보까지 받게 되는 것을 **Over-Fetching**이라 한다. GraphQL에서는 구체적으로 기술된 단일 요청에 의해 필요한 데이터만 받을 수 있다.
+**Over-fetching (불필요한 데이터까지 요청하는 것)**
 
 ```graphql
+# REST API에서 1번 user의 정보를 요청하는 경우
+GET /users/1
 {
-  user(id: 1) {
+  id: 1,
+  name: 'NoHack',
+  age: 29
+}
+
+# name만 필요한 경우, GraphQL에서는 구체적으로 요청 가능
+query {
+  user(id: 1){
     name
   }
 }
 ```
 
-### 작업 타입
+**Under-fetching (여러 Endpoint에 요청을 보내는 것)**
 
-- 쿼리(Query): 데이터 요청
-- 뮤테이션(Mutation): 데이터 변경
-- 구독(Subscription):
+```grahql
+# REST API에서는 한 화면을 구성하기 위해 많은 Endpoint에 요청하게 됨
+GET /posts
+GET /notices
+GET /user/1
 
-> 쿼리 필드는 병렬로 수행되지만, 뮤테이션은 하나씩 순차적으로 실행된다.
+# GraphQL은 Endpoint가 오직 하나
+query {
+  posts {
+    id
+    title
+  }
+  notices {
+    id
+    title
+  }
+  user(id: 1){
+    name
+  }
+}
+```
 
-### 데이터 타입
+하지만 단점 또한 존재한다.
 
-Request
+- 재귀적인 요청이 어렵다.
+- 항상 고정적인 요청을 하는 경우 기존 REST API보다 요청 크기가 클 수 있다.
+- 파일 업로드와 같은 경우 명세를 참고한 개발이 필요하다.
+
+### 알아두고 넘어가기
+
+**용어**
+
+1. 스키마(Schema): 데이터 명세(타입\_type)
+2. 리졸버(Resolver): 호출 시 행할 행동이 담긴 객체(스키마와 연결)
 
 ```graphql
+# Schema
 query {
-  feed {
-    comments
-    likeNumber
-  }
-  notifications {
-    ...
-  }
-  user {
-    ...
-  }
-
-  ...
+  hello: String
+  ping: String
 }
-```
 
-Response
-
-```javascript
+# Resolver
 {
-  feed: {
-    comments: 1,
-    likeNumber: 20
-  },
-  notifications: [
-    { id: 1 },
-    { id: 2 }
-  ],
-  user: {
-    name: 'NoHack'
+  Query: {
+    hello: () => "Hello World!",
+    ping: () => "pong!"
   }
 }
 ```
 
-프로젝트 Dependencies
+**작업 종류**
 
-graphql-yoga
-graphql
-apollo-server
+1. 쿼리(Query): 데이터를 요청하는 작업
+2. 뮤테이션(Mutation): 기존 데이터를 수정하는 작업
 
-간단한 API
+> GraphQL은 요청 형태에 따라 작업 종류가 다르다.
 
-리액트와 연결
+<br>
 
-몽고DB와 연결
+### 프로젝트
 
-## 진행 프로젝트
-
-**[영화 API 백엔드](./project/movie-api-node/)**
-
-- graphql-yoga를 사용해 간단한 GraphQL API 서버 구축
-
-  > graphql-yoga는 GraphQL 서버 설치를 간단하게 할 수 있도록 도와주는 패키지
-
-**[영화 API 프런트엔드](./project/movie-api-react/)**
-
-- 위에서 만든 백엔드를 사용하여 API를 요청하고, 받아온 데이터로 화면 구성
-- 프런트에 apollo-client를 설치해 간단하게 GraphQL 요청을 할 수 있도록 함
-
-  > apollo-client는 GraphQL에 API를
-
-아폴로 서버
-
-**스키마(Schema)**
-
-어떤 데이터가 오고 갈지 정의하는 것
-
-쿼리: 정보 요청
-
-뮤테이션: 정보 변경
-
-**리졸버(Resolver)**
+- [영화 API - 백엔드](./project/movie-api-node/)
+- [영화 API - 프런트엔드](./project/movie-api-react/)
