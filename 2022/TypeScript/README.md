@@ -33,6 +33,9 @@ function add(a: number, b: number): number {
 
 ## Projects
 
+- [TypeScript React Tutorial](./projects/ts-react-tutorial)
+- [TypeScript React Todo](./projects/ts-react-todo)
+
 ## References
 
 - [타입스크립트 공식문서](https://www.typescriptlang.org/)
