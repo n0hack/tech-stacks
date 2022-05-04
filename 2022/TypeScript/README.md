@@ -40,3 +40,4 @@ function add(a: number, b: number): number {
 
 - [타입스크립트 공식문서](https://www.typescriptlang.org/)
 - [타입스크립트 핸드북](https://joshua1988.github.io/ts/intro.html)
+- [벨로퍼트와 함께 배우는 리액트](https://react.vlpt.us/using-typescript)
