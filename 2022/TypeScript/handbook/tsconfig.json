@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "lib": ["DOM", "ES6"],
+    "watch": true
+  },
+  "include": ["src/**/*"]
+}
