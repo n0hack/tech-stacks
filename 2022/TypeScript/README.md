@@ -35,6 +35,7 @@ function add(a: number, b: number): number {
 
 - [TypeScript React Tutorial](./projects/ts-react-tutorial)
 - [TypeScript React Todo](./projects/ts-react-todo)
+- [TypeScript Blockchain](./projects/typechain)
 
 ## References
 
