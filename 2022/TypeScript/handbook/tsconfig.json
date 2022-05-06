@@ -3,7 +3,8 @@
     "outDir": "build",
     "lib": ["DOM", "ES6"],
     "watch": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "experimentalDecorators": true
   },
-  "include": ["src/merging.ts"]
+  "include": ["src/decorator.ts"]
 }
