@@ -45,12 +45,10 @@ var Greeter = /** @class */ (function () {
     function Greeter(message) {
         this.greeting = message;
     }
+    // @enumerable(false)
     Greeter.prototype.greet = function () {
         return 'Hello, ' + this.greeting;
     };
-    __decorate([
-        enumerable(false)
-    ], Greeter.prototype, "greet");
     Greeter = __decorate([
         classDecorator,
         sealed
