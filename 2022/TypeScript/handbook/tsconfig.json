@@ -5,5 +5,5 @@
     "watch": true,
     "skipLibCheck": true
   },
-  "include": ["src/types.ts"]
+  "include": ["src/merging.ts"]
 }
