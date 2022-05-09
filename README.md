@@ -7,6 +7,10 @@
 - [2022.05.05-2022.05.05] [Webpack](./2022/Webpack)
 - [2022.05.09-2022.05.10] [StyledComponents](./2022/Styled-Components)
 
+### 심심할 때마다 공부하는 것
+
+- [MDN Document](mdn)
+
 > 기술문서를 바탕으로 공부한 내용을 디렉터리로 구조화해 정리했습니다.
 
 ### Copyright
