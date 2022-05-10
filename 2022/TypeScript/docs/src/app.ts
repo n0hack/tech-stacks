@@ -1,4 +1,12 @@
-console.log(pi);
+const user = {
+  firstName: 'Jihun',
+  lastName: 'Jeon',
+  role: 'Developer',
+};
 
-myLib.greet('캡틴');
-myLib.name = '타노스';
+interface T {
+  color?: string;
+  test: undefined;
+}
+
+const test: T = { test: undefined };
