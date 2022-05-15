@@ -6,22 +6,16 @@
 
 > 학습한 내용들은 연도별 디렉터리로 구조화해 정리했습니다.
 
+<br>
+
 ## 공부한 것
 
-### 2022년
-
 <details>
-<summary>How do I dropdown?</summary>
-<br>
-This is how you dropdown.
-<br><br>
-<pre>
-&lt;details&gt;
-&lt;summary&gt;How do I dropdown?&lt;&#47;summary&gt;
-&lt;br&gt;
-This is how you dropdown.
-&lt;&#47;details&gt;
-</pre>
+  <summary>2022년</summary>
+  <br>
+  <ul>
+    <li><a href="#">GraphQL</a></li>
+  </ul>
 </details>
 
 - [GraphQL](./2022/GraphQL)
@@ -33,13 +27,13 @@ This is how you dropdown.
 - [NestJS](./2022/NestJS)
 - ...
 
-### 기타 참고 사이트
+## 기타 참고 사이트
 
 - [MDN Document](https://developer.mozilla.org)
 - [CSS Tricks](https://css-tricks.com)
 - [Medium](https://medium.com)
 - [Velog](https://velog.io)
 
-### Copyright
+## Copyright
 
 &copy; 2022 NoHack All rights reserved.
