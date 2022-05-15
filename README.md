@@ -11,7 +11,7 @@
 ## 공부한 것
 
 <details open>
-  <summary><b>2022년</b></summary>
+  <summary style="margin-bottom: 5px"><b>2022년</b></summary>
   <ul>
     <li><a href="./2022/graphql">GraphQL</a></li>
     <li><a href="./2022/typescript">Typescript</a></li>
