@@ -11,20 +11,17 @@
 ## 공부한 것
 
 <details open>
-  <summary>2022년</summary>
-  <br>
+  <summary><b>2022년</b></summary>
   <ul>
-    <li><a href="#">GraphQL</a></li>
-    <li><a href="#">Typescript</a></li>
-    <li><a href="#">Webpack</a></li>
-    <li><a href="#">Styled Component</a></li>
-    <li><a href="#">React</a></li>
-    <li><a href="#">React Query</a></li>
-    <li><a href="#">NestJS</a></li>
+    <li><a href="./2022/graphql">GraphQL</a></li>
+    <li><a href="./2022/typescript">Typescript</a></li>
+    <li><a href="./2022/webpack">Webpack</a></li>
+    <li><a href="./2022/styled-components">Styled Component</a></li>
+    <li><a href="./2022/react">React</a></li>
+    <li><a href="./2022/react-query">React Query</a></li>
+    <li><a href="./2022/nestjs">NestJS</a></li>
   </ul>
 </details>
-
-<br>
 
 ## 기타 참고 사이트
 
@@ -32,8 +29,6 @@
 - [CSS Tricks](https://css-tricks.com)
 - [Medium](https://medium.com)
 - [Velog](https://velog.io)
-
-<br>
 
 ## Copyright
 
