@@ -12,7 +12,6 @@
 
 <details open>
   <summary><b>2022년</b></summary>
-  <br>
   <ul>
     <li><a href="./2022/graphql">GraphQL</a></li>
     <li><a href="./2022/typescript">Typescript</a></li>
