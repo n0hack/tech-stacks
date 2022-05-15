@@ -12,6 +12,7 @@
 
 <details open>
   <summary><b>2022년</b></summary>
+  <br>
   <ul>
     <li><a href="./2022/graphql">GraphQL</a></li>
     <li><a href="./2022/typescript">Typescript</a></li>
@@ -21,6 +22,9 @@
     <li><a href="./2022/react-query">React Query</a></li>
     <li><a href="./2022/nestjs">NestJS</a></li>
   </ul>
+</details>
+<details>
+  <summary><b>2023년</b></summary>
 </details>
 
 ## 기타 참고 사이트
