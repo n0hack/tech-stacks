@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+import { isDarkAtom } from '../atoms';
 
 const HeaderBlock = styled.header`
   display: flex;
@@ -8,14 +10,15 @@ const HeaderBlock = styled.header`
   background-color: #fff;
 `;
 
-interface IHeaderProps {
-  toggleDark: () => void;
-}
+const Header = () => {
+  const [isDark, setIsDark] = useRecoilState(isDarkAtom);
+  const onClick = () => {
+    setIsDark(!isDark);
+  };
 
-const Header = ({ toggleDark }: IHeaderProps) => {
   return (
     <HeaderBlock>
-      <button onClick={toggleDark}>Toggle</button>
+      <button onClick={onClick}>Toggle</button>
     </HeaderBlock>
   );
 };

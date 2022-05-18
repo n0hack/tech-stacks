@@ -1,14 +1,10 @@
 import React from 'react';
 import Header from '../components/Header';
 
-interface IMainPageProps {
-  toggleDark: () => void;
-}
-
-const MainPage = ({ toggleDark }: IMainPageProps) => {
+const MainPage = () => {
   return (
     <>
-      <Header toggleDark={toggleDark} />
+      <Header />
     </>
   );
 };

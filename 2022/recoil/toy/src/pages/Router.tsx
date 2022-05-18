@@ -1,14 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 
-interface IRouterProps {
-  toggleDark: () => void;
-}
-
-const Router = ({ toggleDark }: IRouterProps) => {
+const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage toggleDark={toggleDark} />} />
+      <Route path="/" element={<MainPage />} />
     </Routes>
   );
 };
