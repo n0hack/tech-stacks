@@ -5,8 +5,8 @@ export default function useDarkMode(): [boolean, () => void] {
 
   const toggleDark = () => {
     setIsDark(!isDark);
-    // if (isDark) localStorage.setItem('isDark', 'false');
-    // else localStorage.setItem('isDark', 'true');
+    if (isDark) localStorage.setItem('isDark', 'false');
+    else localStorage.setItem('isDark', 'true');
   };
 
   useEffect(() => {
