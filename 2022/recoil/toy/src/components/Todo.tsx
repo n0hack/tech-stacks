@@ -1,6 +1,6 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { ITodo, todosAtom } from "../atoms";
+import { Categories, ITodo, todosAtom } from "../atoms";
 
 const Todo = ({ text, category, id }: ITodo) => {
   const setTodos = useSetRecoilState(todosAtom);
@@ -11,7 +11,7 @@ const Todo = ({ text, category, id }: ITodo) => {
 
     setTodos((todos) => {
       return todos.map((todo) =>
-        todo.id === id ? { ...todo, category: name as ITodo["category"] } : todo
+        todo.id === id ? { ...todo, category: name as Categories } : todo
       );
     });
   };
@@ -19,18 +19,18 @@ const Todo = ({ text, category, id }: ITodo) => {
   return (
     <li>
       <span>{text}</span>
-      {category !== "TODO" && (
-        <button name="TODO" onClick={onClick}>
+      {category !== Categories["TODO"] && (
+        <button name={Categories["TODO"]} onClick={onClick}>
           Todo
         </button>
       )}
-      {category !== "IN PROGRESS" && (
-        <button name="IN PROGRESS" onClick={onClick}>
+      {category !== Categories["IN PROGRESS"] && (
+        <button name={Categories["IN PROGRESS"]} onClick={onClick}>
           In progress
         </button>
       )}
-      {category !== "DONE" && (
-        <button name="DONE" onClick={onClick}>
+      {category !== Categories["DONE"] && (
+        <button name={Categories["DONE"]} onClick={onClick}>
           Done
         </button>
       )}
