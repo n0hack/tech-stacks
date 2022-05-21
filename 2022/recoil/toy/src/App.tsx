@@ -4,6 +4,7 @@ import { darkTheme, lightTheme } from './theme';
 import useDarkMode from './useDarkMode';
 import { useRecoilValue } from 'recoil';
 import { isDarkAtom } from './atoms';
+import TodoList from './components/TodoList';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -14,11 +15,12 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   // const [isDark, setIsDark] = useDarkMode();
-  const isDark = useRecoilValue(isDarkAtom);
+  // const isDark = useRecoilValue(isDarkAtom);
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
+      <TodoList />
     </>
   );
 }

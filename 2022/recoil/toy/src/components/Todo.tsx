@@ -1,7 +1,8 @@
 import React from 'react';
+import { ITodo } from '../atoms';
 
-const Todo = () => {
-  return <div></div>;
+const Todo = ({ text }: ITodo) => {
+  return <li>{text}</li>;
 };
 
 export default Todo;
