@@ -24,6 +24,7 @@
     <li><a href="./2022/react-hook-form">React Hook Form</a></li>
     <li><a href="./2022/redux">Redux</li>
     <li><a href="./2022/recoil">Recoil</li>
+    <li><a href="./2022/react-beautiful-dnd">React Beautiful DnD</li>
   </ul>
 </details>
 <details>
