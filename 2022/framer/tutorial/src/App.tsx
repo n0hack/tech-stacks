@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { useRef } from 'react';
 
 /* Spring: 현실 세계의 애니메이션 같은 느낌 */
 
@@ -28,6 +29,17 @@ const Circle = styled(motion.div)`
   width: 70px;
   border-radius: 35px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+`;
+
+const BiggerBox = styled.div`
+  width: 600px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.34);
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 `;
 
 const boxVariants = {
@@ -63,15 +75,21 @@ const GesturesVariants = {
 };
 
 function App() {
+  const biggerBoxRef = useRef<HTMLDivElement>(null);
   return (
     <Wrapper>
-      <Box
-        drag
-        variants={GesturesVariants}
-        whileHover={'condition' ? 'hover' : 'other'}
-        whileTap="click"
-        whileDrag="drag"
-      />
+      <BiggerBox ref={biggerBoxRef}>
+        <Box
+          drag
+          dragSnapToOrigin
+          dragElastic={0.5}
+          dragConstraints={biggerBoxRef}
+          variants={GesturesVariants}
+          whileHover={'condition' ? 'hover' : 'other'}
+          whileTap="click"
+          whileDrag="drag"
+        />
+      </BiggerBox>
     </Wrapper>
   );
 }
