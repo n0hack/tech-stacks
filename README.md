@@ -25,6 +25,7 @@
     <li><a href="./2022/redux">Redux</li>
     <li><a href="./2022/recoil">Recoil</li>
     <li><a href="./2022/react-beautiful-dnd">React Beautiful DnD</li>
+    <li><a href="./2022/framer">Framer Motion</li>
   </ul>
 </details>
 <details>
