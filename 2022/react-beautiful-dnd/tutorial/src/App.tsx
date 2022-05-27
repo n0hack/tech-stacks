@@ -27,26 +27,26 @@ function App() {
     const { destination, source, draggableId } = info;
 
     if (!destination) return;
-
     // 동일한 Board
-    if (destination?.droppableId === source.droppableId) {
-      const newTodo = [...todos[source.droppableId]];
-      [newTodo[source.index], newTodo[destination.index]] = [
-        newTodo[destination.index],
-        newTodo[source.index],
+    if (destination.droppableId === source.droppableId) {
+      const nextTodo = [...todos[source.droppableId]];
+      [nextTodo[source.index], nextTodo[destination.index]] = [
+        nextTodo[destination.index],
+        nextTodo[source.index],
       ];
-      setTodos((prev) => ({ ...prev, [destination.droppableId]: newTodo }));
+      setTodos((prev) => ({ ...prev, [destination.droppableId]: nextTodo }));
     } else {
-      const newSrc = [...todos[source.droppableId]];
-      const newDest = [...todos[destination.droppableId]];
+      const nextSrc = [...todos[source.droppableId]];
+      const nextDest = [...todos[destination.droppableId]];
+      const obj = nextSrc[source.index];
 
-      newSrc.splice(source.index, 1);
-      newDest.splice(destination.index, 0, draggableId);
+      nextSrc.splice(source.index, 1);
+      nextDest.splice(destination.index, 0, obj);
 
       setTodos((prev) => ({
         ...prev,
-        [source.droppableId]: newSrc,
-        [destination.droppableId]: newDest,
+        [source.droppableId]: nextSrc,
+        [destination.droppableId]: nextDest,
       }));
     }
   };
