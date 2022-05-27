@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-hook-form": "^7.31.2",
     "recoil": "^0.7.3-alpha.2"
   }
 }
