@@ -12,17 +12,17 @@ const Wrapper = styled.div`
 `;
 
 const Box = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr); */
   width: 200px;
   height: 200px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: white;
   border-radius: 40px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 
 const Circle = styled(motion.div)`
-  place-self: center;
+  /* place-self: center; */
   background-color: white;
   height: 70px;
   width: 70px;
@@ -56,7 +56,27 @@ const circleVariants = {
   end: { opacity: 1, y: 0 },
 };
 
+const GesturesVariants = {
+  hover: { scale: 1.5, rotateZ: 90 },
+  click: { scale: 1, borderRadius: '100px' },
+  drag: { backgroundColor: 'rgb(46, 204, 113)', transition: { duration: 10 } },
+};
+
 function App() {
+  return (
+    <Wrapper>
+      <Box
+        drag
+        variants={GesturesVariants}
+        whileHover={'condition' ? 'hover' : 'other'}
+        whileTap="click"
+        whileDrag="drag"
+      />
+    </Wrapper>
+  );
+}
+
+/* function App() {
   return (
     <Wrapper>
       <Box variants={boxVariants} initial="start" animate="end">
@@ -67,6 +87,6 @@ function App() {
       </Box>
     </Wrapper>
   );
-}
+} */
 
 export default App;
