@@ -1,15 +1,21 @@
-import { motion } from 'framer-motion';
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion';
 import styled from 'styled-components';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 /* Spring: 현실 세계의 애니메이션 같은 느낌 */
 
-const Wrapper = styled.div`
-  height: 100vh;
+const Wrapper = styled(motion.div)`
+  height: 200vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: linear-gradient(135deg, #e09, #d0e); */
 `;
 
 const Box = styled(motion.div)`
@@ -75,6 +81,36 @@ const GesturesVariants = {
 };
 
 function App() {
+  const x = useMotionValue(0);
+  const rotate = useTransform(x, [-200, 200], [-360, 360]);
+  const gradient = useTransform(
+    x,
+    [-200, 0, 200],
+    [
+      'linear-gradient(135deg, rgb(0,210,238), rgb(0,83,238))',
+      'linear-gradient(135deg, #e09, #d0e)',
+      'linear-gradient(135deg, rgb(0,238,155), rgb(238,178,0))',
+    ]
+  );
+  const { scrollY, scrollYProgress } = useViewportScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 5]);
+
+  useEffect(() => {
+    // scrollY.onChange(() => console.log(scrollY.get(), scrollYProgress.get()));
+  }, [scrollY, scrollYProgress]);
+  useEffect(() => {
+    // scale.onChange(() => console.log(scale.get()));
+    // x.onChange(() => console.log(x.get()));
+  }, [x]);
+  return (
+    <Wrapper style={{ background: gradient }}>
+      <button onClick={() => x.set(200)}>click me</button>
+      <Box drag="x" dragSnapToOrigin style={{ x, rotateZ: rotate, scale }} />
+    </Wrapper>
+  );
+}
+
+/* function App() {
   const biggerBoxRef = useRef<HTMLDivElement>(null);
   return (
     <Wrapper>
@@ -92,7 +128,7 @@ function App() {
       </BiggerBox>
     </Wrapper>
   );
-}
+} */
 
 /* function App() {
   return (

@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(135deg, #e09, #d0e);
+    /* background: linear-gradient(135deg, #e09, #d0e); */
   }
 `;
 
