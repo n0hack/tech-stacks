@@ -5,7 +5,7 @@ import {
   useViewportScroll,
 } from 'framer-motion';
 import styled from 'styled-components';
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
 /* Spring: 현실 세계의 애니메이션 같은 느낌 */
 
@@ -80,7 +80,7 @@ const GesturesVariants = {
   drag: { backgroundColor: 'rgb(46, 204, 113)', transition: { duration: 10 } },
 };
 
-function App() {
+/* function App() {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-360, 360]);
   const gradient = useTransform(
@@ -108,7 +108,7 @@ function App() {
       <Box drag="x" dragSnapToOrigin style={{ x, rotateZ: rotate, scale }} />
     </Wrapper>
   );
-}
+} */
 
 /* function App() {
   const biggerBoxRef = useRef<HTMLDivElement>(null);
