@@ -7,6 +7,7 @@ import {
 import styled from 'styled-components';
 import { useEffect } from 'react';
 import AnimatePresence from './AnimatePresence';
+import WatchThis from './WatchThis';
 
 /* Spring: 현실 세계의 애니메이션 같은 느낌 */
 
@@ -102,7 +103,8 @@ const svgVariants = {
 function App() {
   return (
     <Wrapper>
-      <AnimatePresence />
+      {/* <AnimatePresence /> */}
+      <WatchThis />
     </Wrapper>
   );
 }
