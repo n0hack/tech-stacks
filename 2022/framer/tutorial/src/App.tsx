@@ -17,6 +17,7 @@ const Wrapper = styled(motion.div)`
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #e09, #d0e);
+  flex-direction: column;
 `;
 
 const Box = styled(motion.div)`
