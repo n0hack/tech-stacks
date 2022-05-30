@@ -6,6 +6,7 @@ import {
 } from 'framer-motion';
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import AnimatePresence from './AnimatePresence';
 
 /* Spring: 현실 세계의 애니메이션 같은 느낌 */
 
@@ -97,8 +98,16 @@ const svgVariants = {
   },
 };
 
-/* 속성별 애니메이션 delay 조절 가능 */
 function App() {
+  return (
+    <Wrapper>
+      <AnimatePresence />
+    </Wrapper>
+  );
+}
+
+/* 속성별 애니메이션 delay 조절 가능 */
+/* function App() {
   return (
     <Wrapper>
       <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -115,7 +124,7 @@ function App() {
       </Svg>
     </Wrapper>
   );
-}
+} */
 
 /* function App() {
   const x = useMotionValue(0);
