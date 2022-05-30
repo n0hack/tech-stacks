@@ -1,12 +1,12 @@
 import {
+  AnimatePresence,
   motion,
   useMotionValue,
   useTransform,
   useViewportScroll,
 } from 'framer-motion';
 import styled from 'styled-components';
-import { useEffect } from 'react';
-import AnimatePresence from './AnimatePresence';
+import React, { createRef, useEffect, useState } from 'react';
 import WatchThis from './WatchThis';
 
 /* Spring: 현실 세계의 애니메이션 같은 느낌 */
@@ -15,16 +15,27 @@ const Wrapper = styled(motion.div)`
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background: linear-gradient(135deg, #e09, #d0e);
   flex-direction: column;
 `;
 
+const Grid = styled.div`
+  display: grid;
+  width: 50vw;
+  grid-template-columns: repeat(3, 1fr);
+  div:first-child,
+  div:last-child {
+    grid-column: span 2;
+  }
+  gap: 10px;
+`;
+
 const Box = styled(motion.div)`
   /* display: grid;
   grid-template-columns: repeat(2, 1fr); */
-  width: 200px;
+  /* width: 200px; */
   height: 200px;
   background-color: white;
   border-radius: 40px;
@@ -100,11 +111,45 @@ const svgVariants = {
   },
 };
 
+const Overlay = styled(motion.div)`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 function App() {
+  const [id, setId] = useState<null | string>(null);
+  const overlayRef = createRef<HTMLDivElement>();
+
   return (
     <Wrapper>
-      {/* <AnimatePresence /> */}
-      <WatchThis />
+      <Grid>
+        {[1, 2, 3, 4].map((n) => (
+          <Box onClick={() => setId(n + '')} key={n} layoutId={n + ''} />
+        ))}
+      </Grid>
+      <AnimatePresence>
+        {id ? (
+          <Overlay
+            onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+              // current로 체크
+              if (event.target !== overlayRef.current) setId(null);
+            }}
+            initial={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
+            animate={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+            exit={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}
+          >
+            <Box
+              ref={overlayRef}
+              style={{ width: 400, height: 200 }}
+              layoutId={id}
+            />
+          </Overlay>
+        ) : null}
+      </AnimatePresence>
     </Wrapper>
   );
 }
