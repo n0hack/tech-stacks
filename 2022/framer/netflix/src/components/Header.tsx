@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 import { Link, useMatch } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const Nav = styled.nav`
+const Nav = styled(motion.nav)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,21 +99,40 @@ const Input = styled(motion.input)`
 
 type Props = {};
 
+const navVariants = {
+  top: { backgroundColor: 'rgba(0,0,0,0)' },
+  scroll: { backgroundColor: 'rgba(0,0,0,1)' },
+};
+
 export default function Header({}: Props) {
   const [searchOpen, setSearchOpen] = useState(false);
   const homeMatch = useMatch('/');
   const tvMatch = useMatch('/tv');
   const inputAnimation = useAnimation();
+  const navAnimation = useAnimation();
+  const { scrollY } = useViewportScroll();
 
   const toggleSearch = () => {
     if (searchOpen) {
+      inputAnimation.start({ scaleX: 0 });
     } else {
+      inputAnimation.start({ scaleX: 1 });
     }
     setSearchOpen(!searchOpen);
   };
 
+  useEffect(() => {
+    scrollY.onChange(() => {
+      if (scrollY.get() > 80) {
+        navAnimation.start('scroll');
+      } else {
+        navAnimation.start('top');
+      }
+    });
+  }, [scrollY, navAnimation]);
+
   return (
-    <Nav>
+    <Nav variants={navVariants} animate={navAnimation} initial={'top'}>
       <Col>
         <Logo
           variants={logoVariants}
@@ -155,7 +174,6 @@ export default function Header({}: Props) {
           <Input
             animate={inputAnimation}
             initial={{ scaleX: 0 }}
-            animate={{ scaleX: searchOpen ? 1 : 0 }}
             transition={{ type: 'linear' }}
             placeholder="Search for movie or tv show"
           />
