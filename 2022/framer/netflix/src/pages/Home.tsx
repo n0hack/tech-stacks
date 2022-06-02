@@ -56,10 +56,31 @@ const Box = styled(motion.div)<{ bgphoto: string }>`
   background-image: url(${(props) => props.bgphoto});
   background-size: cover;
   background-position: center center;
-  font-size: 24px;
+  font-size: 66px;
+
+  &:first-child {
+    transform-origin: center left;
+  }
+  &:last-child {
+    transform-origin: center right;
+  }
+  cursor: pointer;
 `;
 
 type Props = {};
+
+const Info = styled(motion.div)`
+  padding: 10px;
+  background-color: ${(props) => props.theme.black.lighter};
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  h4 {
+    text-align: center;
+    font-size: 18px;
+  }
+`;
 
 const rowVariants = {
   hidden: {
@@ -70,6 +91,27 @@ const rowVariants = {
   },
   exit: {
     x: -window.innerWidth + 10,
+  },
+};
+
+const boxVariants = {
+  /* 통통 튀는 효과는 애니메이션 타입이 spring이라 그럼. twin으로 변경해 주면 선형 효과가 됨 */
+  normal: { scale: 1 },
+  hover: {
+    scale: 1.3,
+    y: -40,
+    transition: { delay: 0.5, duration: 0.1, type: 'tween' },
+  },
+};
+
+const infoVariants = {
+  hover: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      duration: 0.1,
+      type: 'tween',
+    },
   },
 };
 
@@ -121,10 +163,16 @@ export default function Home({}: Props) {
                   .slice(offset * index, offset * index + offset)
                   .map((movie) => (
                     <Box
+                      variants={boxVariants}
                       key={movie.id}
                       bgphoto={makeImagePath(movie.backdrop_path, 'w500')}
+                      initial="normal"
+                      whileHover="hover"
+                      transition={{ type: 'tween' }}
                     >
-                      {movie.title}
+                      <Info variants={infoVariants}>
+                        <h4>{movie.title}</h4>
+                      </Info>
                     </Box>
                   ))}
               </Row>
