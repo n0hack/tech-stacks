@@ -34,3 +34,9 @@ export function getMovies() {
     (response) => response.json()
   );
 }
+
+export function getMovie(movieId: number) {
+  return fetch(`${BASE_PATH}/movie/${movieId}?api_key=${API_KEY}`).then(
+    (response) => response.json()
+  );
+}
