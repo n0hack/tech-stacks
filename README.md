@@ -16,6 +16,7 @@
     <li><a href="./2022/javascript">Javascript</a></li>
     <li><a href="./2022/typescript">Typescript</a></li>
     <li><a href="./2022/react">React</a></li>
+    <li><a href="./2022/react">NextJS</a></li>
     <li><a href="./2022/styled-components">Styled Component</a></li>
     <li><a href="./2022/graphql">GraphQL</a></li>
     <li><a href="./2022/webpack">Webpack</a></li>
