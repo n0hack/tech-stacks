@@ -16,9 +16,9 @@
     <li><a href="./2022/javascript">Javascript</a></li>
     <li><a href="./2022/typescript">Typescript</a></li>
     <li><a href="./2022/react">React</a></li>
+    <li><a href="./2022/styled-components">Styled Component</a></li>
     <li><a href="./2022/graphql">GraphQL</a></li>
     <li><a href="./2022/webpack">Webpack</a></li>
-    <li><a href="./2022/styled-components">Styled Component</a></li>
     <li><a href="./2022/react-query">React Query</a></li>
     <li><a href="./2022/nestjs">NestJS</a></li>
     <li><a href="./2022/react-hook-form">React Hook Form</a></li>
