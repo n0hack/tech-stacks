@@ -17,6 +17,7 @@
     <li><a href="./2022/typescript">Typescript</a></li>
     <li><a href="./2022/react">React</a></li>
     <li><a href="./2022/react">NextJS</a></li>
+    <!-- 리액트 라이브러리 정리 예정 -->
     <li><a href="./2022/styled-components">Styled Component</a></li>
     <li><a href="./2022/graphql">GraphQL</a></li>
     <li><a href="./2022/webpack">Webpack</a></li>
