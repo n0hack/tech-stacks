@@ -2,6 +2,8 @@ import React from "react";
 
 type Props = {};
 
-export default function App({}: Props) {
+function App({}: Props) {
   return <div>App</div>;
 }
+
+export default App;
