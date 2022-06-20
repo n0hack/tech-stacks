@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import Seo from "../../components/Seo";
 
 type Props = {
-  params: Test;
+  params: Params;
 };
 
-type Test = [string, string];
+type Params = [string, string];
 
 export default function Detail({ params }: Props) {
   const router = useRouter();
