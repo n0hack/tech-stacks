@@ -1,25 +1,29 @@
+import { Flex } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { useState } from "react";
+import Header from "../components/Header";
+import List from "../components/List";
+import Map from "../components/Map";
+import PlaceDetail from "../components/PlaceDetail";
 
 const Home: NextPage = () => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
-  });
+  const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
 
-  if (!isLoaded) return <div>Loading...</div>;
-  return <Map />;
+  return (
+    <Flex
+      justifyContent={"center"}
+      alignItems={"center"}
+      width={"100vw"}
+      height={"100vh"}
+      maxWidth={"100vw"}
+      maxHeight={"100vh"}
+      position={"relative"}
+    >
+      {/* <Header /> */}
+      {/* <List /> */}
+      <Map coordinates={coordinates} />
+    </Flex>
+  );
 };
 
 export default Home;
-
-function Map() {
-  return (
-    <GoogleMap
-      zoom={10}
-      center={{ lat: 44, lng: -80 }}
-      mapContainerClassName="map-container"
-    >
-      Map
-    </GoogleMap>
-  );
-}
