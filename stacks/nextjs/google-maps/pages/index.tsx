@@ -8,6 +8,8 @@ import PlaceDetail from "../components/PlaceDetail";
 
 const Home: NextPage = () => {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
+  const [type, setType] = useState("restaurants");
+  const [ratings, setRatings] = useState("");
 
   return (
     <Flex
@@ -19,7 +21,11 @@ const Home: NextPage = () => {
       maxHeight={"100vh"}
       position={"relative"}
     >
-      {/* <Header /> */}
+      <Header
+        setType={setType}
+        setRatings={setRatings}
+        setCoordinates={setCoordinates}
+      />
       {/* <List /> */}
       <Map coordinates={coordinates} />
     </Flex>
