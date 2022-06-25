@@ -20,6 +20,7 @@ const Map = ({ coordinates }: Props) => {
           center={coordinates}
           zoom={10}
           mapContainerStyle={{ width: "100%", height: "100vh" }}
+          options={{ mapTypeControl: false }}
         />
       </Box>
     </>
