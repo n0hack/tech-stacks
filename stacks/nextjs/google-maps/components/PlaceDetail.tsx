@@ -1,9 +1,11 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  place: { name: string };
+};
 
-const PlaceDetail = (props: Props) => {
-  return <div>PlaceDetail</div>;
+const PlaceDetail = ({ place }: Props) => {
+  return <div>{place.name}</div>;
 };
 
 export default PlaceDetail;
