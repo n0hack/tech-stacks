@@ -1,4 +1,4 @@
-# Tech Stacks 👨‍💻
+# Tech Stacks
 
 ![7421a080-2b63-40fa-9199-c5a2afa6eba3](https://user-images.githubusercontent.com/42988225/168462121-a1af69bb-3f2e-483d-b7d9-148551c78820.jpeg)
 
