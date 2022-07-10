@@ -1,10 +1,18 @@
+import React from 'react';
 import { RecoilRoot } from 'recoil';
-import CharacterCounter from './components/CharacterCounter';
+import CurrentUserInfo from './components/CurrentUserInfo';
+import UserInfo from './components/UserInfo';
 
 function App() {
   return (
     <RecoilRoot>
-      <CharacterCounter />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        {/* <CharacterCounter /> */}
+        <CurrentUserInfo />
+        <UserInfo userID={1} />
+        <UserInfo userID={2} />
+        <UserInfo userID={3} />
+      </React.Suspense>
     </RecoilRoot>
   );
 }
