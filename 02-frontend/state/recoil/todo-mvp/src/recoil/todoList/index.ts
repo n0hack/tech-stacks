@@ -1,2 +1,3 @@
-export { default } from './atom';
+export * from './atoms';
 export * from './types';
+export * from './selectors';
