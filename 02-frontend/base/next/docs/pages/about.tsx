@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
@@ -7,8 +8,6 @@ const About: NextPage = () => {
     const f = async () => {
       const res = await fetch('/api/hello');
       const data = await res.json();
-
-      console.log(data);
     };
     f();
   }, []);
@@ -21,6 +20,12 @@ const About: NextPage = () => {
       </Link>
     </div>
   );
+};
+
+export const getStaticProps = async ({ locale }: { locale: string }) => {
+  return {
+    props: { ...(await serverSideTranslations(locale, ['common'])) },
+  };
 };
 
 export default About;

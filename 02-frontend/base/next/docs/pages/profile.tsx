@@ -5,7 +5,7 @@ const fetcher = (...args: string[]) => {
 };
 
 const Profile = () => {
-  const { data, error } = useSWR<{ title: string; body: string }>('https://jsonplaceholder.typicode.com/posts', fetcher);
+  const { data, error } = useSWR<{ title: string; body: string }>('https://jsonplaceholder.typicode.com/posts/1', fetcher);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
