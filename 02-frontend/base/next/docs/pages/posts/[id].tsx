@@ -1,5 +1,7 @@
 import { GetServerSideProps, GetStaticProps, NextPageContext } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 type Post = {
   userId: number;
@@ -13,11 +15,14 @@ type Props = {
 };
 
 const Post = ({ post }: Props) => {
+  const router = useRouter();
+
   return (
     <div>
-      <Link href="/posts">
+      <button onClick={router.back}>뒤로가기</button>
+      {/* <Link href="/posts">
         <a>뒤로가기</a>
-      </Link>
+      </Link> */}
       <h1>{post.title}</h1>
       <p>{post.body}</p>
     </div>
