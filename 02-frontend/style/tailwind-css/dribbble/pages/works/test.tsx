@@ -3,8 +3,8 @@ import type { NextPage } from "next";
 const Page: NextPage = () => {
   // Tailwind는 모바일 퍼스트를 기본으로 적용
   return (
-    <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen lg:flex">
-      <div className="bg-white p-6 rounded-3xl shadow-xl flex-1">
+    <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen lg:grid-cols-2 xl:grid-cols-3 xl:place-items-center">
+      <div className="bg-white p-6 rounded-3xl shadow-xl ">
         <span className="font-semibold text-3xl">Select Item</span>
         <ul>
           {[1, 2, 3, 4, 5].map((i) => (
@@ -31,7 +31,7 @@ const Page: NextPage = () => {
         </button>
       </div>
 
-      <div className="bg-white overflow-hidden rounded-3xl shadow-xl group flex-1">
+      <div className="bg-white overflow-hidden rounded-3xl shadow-xl group ">
         <div className="bg-blue-500 p-6 pb-14">
           <span className="text-white text-2xl">Profile</span>
         </div>
@@ -54,7 +54,7 @@ const Page: NextPage = () => {
         </div>
       </div>
 
-      <div className="bg-white p-10 rounded-3xl shadow-xl flex-1">
+      <div className="bg-white p-10 rounded-3xl shadow-xl lg:col-span-2 xl:col-span-1">
         <div className="flex mb-5 justify-between items-center">
           <span>⬅️</span>
           <div className="space-x-3">
