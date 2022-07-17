@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 
 const Page: NextPage = () => {
+  // Tailwind는 JIT(Just In Time) 컴파일로 동작함 (3.0v부터 도입) _컴파일러가 변경 사항을 추적해 클래스를 만들어 줌
+  // 이전에는 배포 전에 사용하지 않는 클래스명들을 일괄로 제거해주는 작업(Purging)을 거쳤어야 함. 하나의 거대한 CSS 파일이었음
   // Tailwind는 모바일 퍼스트를 기본으로 적용
   return (
     <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen lg:grid-cols-2 xl:grid-cols-3 xl:place-items-center">
