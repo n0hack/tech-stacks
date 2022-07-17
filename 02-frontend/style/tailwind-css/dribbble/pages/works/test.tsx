@@ -4,13 +4,13 @@ const Page: NextPage = () => {
   // Tailwind는 모바일 퍼스트를 기본으로 적용
   return (
     <div className="bg-slate-400 py-20 px-10 grid gap-10 min-h-screen lg:grid-cols-2 xl:grid-cols-3 xl:place-items-center">
-      <div className="bg-white p-6 rounded-3xl shadow-xl ">
-        <span className="font-semibold text-3xl">Select Item</span>
+      <div className="bg-white p-6 rounded-3xl shadow-xl dark:bg-black">
+        <span className="font-semibold text-3xl dark:text-white">Select Item</span>
         <ul>
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="flex justify-between my-2 only:bg-blue-50">
-              <span className="text-gray-500">Grey Chair</span>
-              <span className="font-semibold">$19</span>
+              <span className="text-gray-500 dark:text-gray-100">Grey Chair</span>
+              <span className="font-semibold dark:text-white">$19</span>
             </div>
           ))}
         </ul>
@@ -73,20 +73,14 @@ const Page: NextPage = () => {
               <button className="w-5 h-5 rounded-full bg-teal-500 focus:ring-2 ring-offset-2 ring-teal-500 transition" />
             </div>
             <div className="flex items-center space-x-5">
-              <button className="rounded-lg bg-blue-200 flex justify-center items-center aspect-square w-8 text-xl text-gray-500">
-                -
-              </button>
+              <button className="rounded-lg bg-blue-200 flex justify-center items-center aspect-square w-8 text-xl text-gray-500">-</button>
               <span>1</span>
-              <button className="rounded-lg bg-blue-200 flex justify-center items-center aspect-square w-8 text-xl text-gray-500">
-                +
-              </button>
+              <button className="rounded-lg bg-blue-200 flex justify-center items-center aspect-square w-8 text-xl text-gray-500">+</button>
             </div>
           </div>
           <div className="flex justify-between items-center">
             <span className="font-medium text-2xl">$450</span>
-            <button className="bg-blue-500 text-center text-xs text-white rounded-xl py-4 px-8">
-              Add to cart
-            </button>
+            <button className="bg-blue-500 text-center text-xs text-white rounded-xl py-4 px-8">Add to cart</button>
           </div>
         </div>
       </div>
