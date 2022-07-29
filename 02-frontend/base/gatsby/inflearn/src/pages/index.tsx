@@ -1,10 +1,14 @@
 import React from "react";
-import Text from "components/Text";
+import { Link } from "gatsby";
 
 type Props = {};
 
 const IndexPage = ({}: Props) => {
-  return <Text text="Home" />;
+  return (
+    <div>
+      <Link to="/info">To Info</Link>
+    </div>
+  );
 };
 
 export default IndexPage;
