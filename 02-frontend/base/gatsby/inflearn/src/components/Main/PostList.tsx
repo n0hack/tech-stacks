@@ -1,8 +1,11 @@
 import styled from "@emotion/styled";
 import React from "react";
 import PostItem from "./PostItem";
+import type { PostListItemType } from "../../types/PostItem.types";
 
-type Props = {};
+type PostListProps = {
+  posts: PostListItemType[];
+};
 
 const POST_ITEM_DATA = {
   title: "Post Item Title",
@@ -30,13 +33,12 @@ const PostListWrapper = styled.div`
   }
 `;
 
-const PostList = ({}: Props) => {
+const PostList = ({ posts }: PostListProps) => {
   return (
     <PostListWrapper>
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
+      {posts.map(({ node: { id, frontmatter } }: PostListItemType) => (
+        <PostItem {...frontmatter} link="https:///www.google.com/" key={id} />
+      ))}
     </PostListWrapper>
   );
 };
